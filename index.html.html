@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Gato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+body{
+    font-family:"Press start 2p";
+background: linear-gradient( cyan, aquamarine,lime)
+}
+
+.caja{
+border: 3px solid black;
+width:600px;
+height:600px;
+margin-top:20%;
+margin-bottom: 20%;
+border-radius: 50px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+
+  background-color:cyan;
+  box-shadow: 15px 15px 15px aquamarine;
+
+}
+
+
+.cajita{
+border: 3px solid black;
+width:150px;
+height:150px;
+box-shadow: 8px 8px 5px aquamarine;
+margin-top:20px;
+margin-bottom: 20px;
+border-radius: 20px;
+font-size: 140px;
+align-content: center;
+cursor:pointer;
+background-color: aqua;
+
+animation: 3s linear 0s infinite running grandi;
+}
+
+@keyframes grandi{
+0% {background-color: aqua; box-shadow: 8px 8px 5px aquamarine;}
+90%{background-color:lime; box-shadow: 8px 8px 5px limegreen;}
+100%{background-color: aqua; box-shadow: 8px 8px 5px aquamarine;}
+}
+
+button{
+    font-size:50px;
+ font-family:"Press start 2p";
+ background: linear-gradient(purple,pink);
+ height: 70px;
+ box-shadow: 20px 20px 20px violet; 
+}
+</style>
+<script>
+var turno = "X";
+
+function jugar(celda){
+  if(celda.innerHTML == ""){
+
+    celda.innerHTML = turno;
+
+    if(turno == "X"){
+      celda.style.color = "red";
+      turno = "O";
+    } else {
+      celda.style.color = "blue";
+      turno = "X";
+    }
+
+  }
+}
+
+function reiniciar(){
+  location.reload();
+}
+
+</script>
+
+<div align="center">
+<button onclick="reiniciar()">Reiniciar</button>
+
+
+<div class="caja">
+<div class="cajita" onclick="jugar(this)"></div>
+<div class="cajita" onclick="jugar(this)"></div>
+<div class="cajita" onclick="jugar(this)"></div>
+
+<div class="cajita" onclick="jugar(this)"></div>
+<div class="cajita" onclick="jugar(this)"></div>
+<div class="cajita" onclick="jugar(this)"></div>
+
+<div class="cajita" onclick="jugar(this)"></div>
+<div class="cajita" onclick="jugar(this)"></div>
+<div class="cajita" onclick="jugar(this)"></div>
+
+</div>
+</div>
+</body>
+</html>
